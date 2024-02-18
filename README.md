@@ -7,3 +7,7 @@
 | Тюрин М.Д. | - |
 |-------------|-------------|
 | Моисеев А.| - |
+
+---
+
+[Ссылка на ТЗ](https://docs.google.com/document/d/1Na9jSlxca3_rLC-BfpdOC2h5nSP62dQMwzYbuJS1mRo/edit?usp=sharing "Документ с ТЗ и возможностью комментирования")
