@@ -127,6 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Expression.h" />
+    <ClInclude Include="Operators.h" />
+    <ClInclude Include="PostfixConverter.h" />
+    <ClInclude Include="Sequence.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="Term.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
