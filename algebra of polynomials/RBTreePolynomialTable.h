@@ -13,6 +13,28 @@ private:
     std::map<std::string, std::shared_ptr<Polynomial>> table;
 
 public:
+    // Итераторы
+    typedef std::map<std::string, std::shared_ptr<Polynomial>>::iterator iterator;
+    typedef std::map<std::string, std::shared_ptr<Polynomial>>::const_iterator const_iterator;
+
+    iterator begin() { return table.begin(); }
+    iterator end() { return table.end(); }
+    const_iterator begin() const { return table.cbegin(); }
+    const_iterator end() const { return table.cend(); }
+
+    // Диапазоны ключей
+    std::vector<std::shared_ptr<Polynomial>> getPolynomialsInRange(const std::string& start, const std::string& end) {
+      std::vector<std::shared_ptr<Polynomial>> result;
+      auto itStart = table.lower_bound(start);
+      auto itEnd = table.upper_bound(end);
+
+      for (auto it = itStart; it != itEnd; ++it) {
+        result.push_back(it->second);
+      }
+
+      return result;
+    }
+
     // Вставка полинома в таблицу
     void insert(const Polynomial& polynomial) override {
         table[polynomial.getName()] = std::make_shared<Polynomial>(polynomial);

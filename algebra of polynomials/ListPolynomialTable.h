@@ -27,6 +27,15 @@ private:
     std::list<NamedPolynomial> table; // Список для хранения именованных полиномов
 
 public:
+    // Итераторы
+    typedef std::list<NamedPolynomial>::iterator iterator;
+    typedef std::list<NamedPolynomial>::const_iterator const_iterator;
+
+    iterator begin() { return table.begin(); }
+    iterator end() { return table.end(); }
+    const_iterator begin() const { return table.begin(); }
+    const_iterator end() const { return table.end(); }
+
     // Деструктор
     virtual ~ListPolynomialTable() override {}
 

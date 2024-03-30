@@ -27,6 +27,15 @@ private:
     std::vector<NamedPolynomial> table; // Упорядоченный вектор именованных полиномов
 
 public:
+    // Итераторы
+    typedef std::vector<NamedPolynomial>::iterator iterator;
+    typedef std::vector<NamedPolynomial>::const_iterator const_iterator;
+
+    iterator begin() { return table.begin(); }
+    iterator end() { return table.end(); }
+    const_iterator begin() const { return table.begin(); }
+    const_iterator end() const { return table.end(); }
+
     // Деструктор
     virtual ~OrderedArrayPolynomialTable() override {}
 
