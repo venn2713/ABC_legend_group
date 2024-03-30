@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArrayPolynomialTable.h" />
+    <ClInclude Include="ChainedHashPolynomialTable.h" />
+    <ClInclude Include="ListPolynomialTable.h" />
+    <ClInclude Include="Monomial.h" />
+    <ClInclude Include="OpenHashPolynomialTable.h" />
+    <ClInclude Include="OrderedArrayPolynomialTable.h" />
+    <ClInclude Include="Polynomial.h" />
+    <ClInclude Include="PolynomialTable.h" />
+    <ClInclude Include="RBTreePolynomialTable.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -126,14 +137,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="Expression.h" />
-    <ClInclude Include="Operators.h" />
-    <ClInclude Include="PostfixConverter.h" />
-    <ClInclude Include="Sequence.h" />
-    <ClInclude Include="Stack.h" />
-    <ClInclude Include="Term.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
