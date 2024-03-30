@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Polynomial {
 private:
@@ -26,6 +27,26 @@ public:
         }
         // Если одночлен с такими степенями не найден, добавляем новый
         monomials.push_back(monomial);
+    }
+
+    // Умножение на константу
+    void scale(double factor) {
+      for (auto& monomial : monomials) {
+        monomial.setCoefficient(monomial.getCoefficient() * factor);
+      }
+    }
+
+    // Вычисление значения полинома в точке
+    double evaluate(double x, double y, double z) const {
+      double result = 0.0;
+      for (const auto& monomial : monomials) {
+        double monomialValue = monomial.getCoefficient() *
+          std::pow(x, monomial.getDegreeX()) *
+          std::pow(y, monomial.getDegreeY()) *
+          std::pow(z, monomial.getDegreeZ());
+        result += monomialValue;
+      }
+      return result;
     }
 
     // Геттеры и сеттеры
@@ -70,10 +91,14 @@ Polynomial Polynomial::operator*(const Polynomial& other) const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Polynomial& polynomial) {
-    for (const auto& monomial : polynomial.monomials) {
-        os << monomial << " + ";
+  for (auto it = polynomial.monomials.begin(); it != polynomial.monomials.end(); ++it) {
+    os << *it;
+    if (std::next(it) != polynomial.monomials.end()) {
+      os << " + ";
     }
-    return os;
+  }
+  return os;
 }
+
 
 #endif // POLYNOMIAL_H
