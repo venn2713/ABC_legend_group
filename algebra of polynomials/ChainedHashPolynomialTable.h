@@ -31,6 +31,7 @@ private:
 public:
     explicit ChainedHashPolynomialTable(size_t size = 101) : tableSize(size), table(size) {}
 
+    // Вставка полинома в таблицу
     void insert(const Polynomial& polynomial) override {
         size_t index = hashFunction(polynomial.getName());
         auto& bucket = table[index];
@@ -43,6 +44,7 @@ public:
         bucket.emplace_back(polynomial.getName(), std::make_shared<Polynomial>(polynomial)); // Add new
     }
 
+    // Удаление полинома из таблицы
     bool remove(const std::string& name) override {
         size_t index = hashFunction(name);
         auto& bucket = table[index];
@@ -56,6 +58,7 @@ public:
         return false;
     }
 
+    // Поиск полинома по имени
     std::shared_ptr<Polynomial> find(const std::string& name) const override {
         size_t index = hashFunction(name);
         const auto& bucket = table[index];
@@ -68,6 +71,7 @@ public:
         return nullptr;
     }
 
+    // Вывод содержимого таблицы на экран
     void display() const override {
         for (const auto& bucket : table) {
             for (const auto& entry : bucket) {
@@ -76,6 +80,7 @@ public:
         }
     }
 
+    // Получение всех имен полиномов в таблице
     std::vector<std::string> getNames() const override {
         std::vector<std::string> names;
         for (const auto& bucket : table) {
@@ -84,6 +89,20 @@ public:
             }
         }
         return names;
+    }
+
+    // Батчевое добавление
+    void insertBatch(const std::vector<Polynomial>& polynomials) override {
+      for (const auto& polynomial : polynomials) {
+        insert(polynomial);
+      }
+    }
+
+    // Батчевое удаление
+    void removeBatch(const std::vector<std::string>& names) override {
+      for (const auto& name : names) {
+        remove(name);
+      }
     }
 };
 

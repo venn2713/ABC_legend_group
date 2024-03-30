@@ -30,6 +30,10 @@ public:
     // Получение всех имен полиномов в таблице
     // Возвращает вектор строк с именами полиномов
     virtual std::vector<std::string> getNames() const = 0;
+
+    // Новые методы для батчевого добавления и удаления
+    virtual void insertBatch(const std::vector<Polynomial>& polynomials) = 0;
+    virtual void removeBatch(const std::vector<std::string>& names) = 0;
 };
 
 #endif // POLYNOMIAL_TABLE_H

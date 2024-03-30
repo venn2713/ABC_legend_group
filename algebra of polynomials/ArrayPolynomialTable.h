@@ -75,6 +75,20 @@ public:
                        [](const NamedPolynomial& item) { return item.name; });
         return names;
     }
+
+    // Батчевое добавление
+    void insertBatch(const std::vector<Polynomial>& polynomials) override {
+      for (const auto& polynomial : polynomials) {
+        insert(polynomial);
+      }
+    }
+
+    // Батчевое удаление
+    void removeBatch(const std::vector<std::string>& names) override {
+      for (const auto& name : names) {
+        remove(name);
+      }
+    }
 };
 
 #endif // ARRAY_POLYNOMIAL_TABLE_H

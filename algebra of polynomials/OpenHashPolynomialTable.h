@@ -46,6 +46,24 @@ private:
 public:
     OpenHashPolynomialTable(size_t size = 101) : table(size) {}
 
+    void rehash(size_t newSize) {
+      std::vector<HashEntry> newTable(newSize);
+      std::swap(table, newTable);
+      activeEntries = 0;
+
+      for (const auto& entry : newTable) {
+        if (entry.isActive) {
+          size_t newIndex = hashFunction(entry.name, newSize);
+          while (table[newIndex].isActive) {
+            newIndex = (newIndex + 1) % newSize;
+          }
+          table[newIndex] = entry; // Копируем активные элементы в новую таблицу
+          ++activeEntries;
+        }
+      }
+    }
+
+    // Вставка полинома в таблицу
     void insert(const Polynomial& polynomial) override {
         if ((activeEntries + 1) * 2 >= table.size()) {
             rehash(); // Расширяем таблицу при достижении порога заполненности
@@ -60,6 +78,7 @@ public:
         activeEntries++;
     }
 
+    // Удаление полинома из таблицы
     bool remove(const std::string& name) override {
         size_t index = hashFunction(name, table.size());
         while (table[index].isActive) {
@@ -73,6 +92,7 @@ public:
         return false;
     }
 
+    // Поиск полинома по имени
     std::shared_ptr<Polynomial> find(const std::string& name) const override {
         size_t index = hashFunction(name, table.size());
         while (table[index].isActive) {
@@ -84,6 +104,7 @@ public:
         return nullptr;
     }
 
+    // Вывод содержимого таблицы на экран
     void display() const override {
         for (const auto& entry : table) {
             if (entry.isActive) {
@@ -92,6 +113,7 @@ public:
         }
     }
 
+    // Получение всех имен полиномов в таблице
     std::vector<std::string> getNames() const override {
         std::vector<std::string> names;
         for (const auto& entry : table) {
@@ -100,6 +122,20 @@ public:
             }
         }
         return names;
+    }
+
+    // Батчевое добавление
+    void insertBatch(const std::vector<Polynomial>& polynomials) override {
+      for (const auto& polynomial : polynomials) {
+        insert(polynomial);
+      }
+    }
+
+    // Батчевое удаление
+    void removeBatch(const std::vector<std::string>& names) override {
+      for (const auto& name : names) {
+        remove(name);
+      }
     }
 };
 
