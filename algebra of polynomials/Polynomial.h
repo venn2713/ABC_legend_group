@@ -2,6 +2,7 @@
 #define POLYNOMIAL_H
 
 #include "Monomial.h"
+//#include "PolynomialTablesManager.h"
 #include <vector>
 #include <iostream>
 #include <string>
@@ -11,10 +12,16 @@ class Polynomial {
 private:
     std::vector<Monomial> monomials; // Вектор одночленов, составляющих полином
     std::string name; // Имя полинома для удобства идентификации
+    //static PolynomialTablesManager* tablesManager; // статическая ссылка на менеджер таблиц
 
 public:
     // Конструктор с именем полинома
     explicit Polynomial(const std::string& name = "") : name(name) {}
+
+    //// Указать менеджер таблиц
+    //static void setTablesManager(PolynomialTablesManager* manager) {
+    //  tablesManager = manager;
+    //}
 
     // Добавление одночлена к полиному
     void addMonomial(const Monomial& monomial) {

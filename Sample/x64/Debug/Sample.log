@@ -1,12 +1,2 @@
 ﻿  Sample.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\optional(12): warning STL4038: The contents of <optional> are available only with C++17 or later.
-C:\Users\Сергей\Documents\ABC_legend_group\Sample\Sample.cpp(21,30): error C2819: тип "OpenHashPolynomialTable::iterator" не имеет перегруженный "operator ->"
-C:\Users\Сергей\Documents\ABC_legend_group\algebra of polynomials\OpenHashPolynomialTable.h(48,11): message : см. объявление "OpenHashPolynomialTable::iterator"
-C:\Users\Сергей\Documents\ABC_legend_group\Sample\Sample.cpp(21,30): message : возможно, имеется в виду "."
-C:\Users\Сергей\Documents\ABC_legend_group\Sample\Sample.cpp(21,34): error C2039: "name": не является членом "OpenHashPolynomialTable::iterator".
-C:\Users\Сергей\Documents\ABC_legend_group\algebra of polynomials\OpenHashPolynomialTable.h(48,11): message : см. объявление "OpenHashPolynomialTable::iterator"
-C:\Users\Сергей\Documents\ABC_legend_group\Sample\Sample.cpp(21,64): error C2819: тип "OpenHashPolynomialTable::iterator" не имеет перегруженный "operator ->"
-C:\Users\Сергей\Documents\ABC_legend_group\algebra of polynomials\OpenHashPolynomialTable.h(48,11): message : см. объявление "OpenHashPolynomialTable::iterator"
-C:\Users\Сергей\Documents\ABC_legend_group\Sample\Sample.cpp(21,64): message : возможно, имеется в виду "."
-C:\Users\Сергей\Documents\ABC_legend_group\Sample\Sample.cpp(21,68): error C2039: "polynomial": не является членом "OpenHashPolynomialTable::iterator".
-C:\Users\Сергей\Documents\ABC_legend_group\algebra of polynomials\OpenHashPolynomialTable.h(48,11): message : см. объявление "OpenHashPolynomialTable::iterator"
+  Sample.vcxproj -> C:\Users\Сергей\Documents\ABC_legend_group\x64\Debug\Sample.exe

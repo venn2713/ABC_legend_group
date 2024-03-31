@@ -42,5 +42,8 @@
     <ClInclude Include="RBTreePolynomialTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="PolynomialTablesManager.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

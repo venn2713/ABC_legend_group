@@ -27,6 +27,7 @@
     <ClInclude Include="OrderedArrayPolynomialTable.h" />
     <ClInclude Include="Polynomial.h" />
     <ClInclude Include="PolynomialTable.h" />
+    <ClInclude Include="PolynomialTablesManager.h" />
     <ClInclude Include="RBTreePolynomialTable.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
