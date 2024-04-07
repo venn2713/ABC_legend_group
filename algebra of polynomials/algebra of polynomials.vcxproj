@@ -19,16 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ArrayPolynomialTable.h" />
-    <ClInclude Include="ChainedHashPolynomialTable.h" />
-    <ClInclude Include="ListPolynomialTable.h" />
-    <ClInclude Include="Monomial.h" />
-    <ClInclude Include="OpenHashPolynomialTable.h" />
-    <ClInclude Include="OrderedArrayPolynomialTable.h" />
-    <ClInclude Include="Polynomial.h" />
-    <ClInclude Include="PolynomialTable.h" />
-    <ClInclude Include="PolynomialTablesManager.h" />
-    <ClInclude Include="RBTreePolynomialTable.h" />
+    <ClInclude Include="AbstractTable.h" />
+    <ClInclude Include="ArrayTable.h" />
+    <ClInclude Include="Monom.h" />
+    <ClInclude Include="Polinom.h" />
+    <ClInclude Include="TablesControl.h" />
+    <ClInclude Include="TList.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Sample.cpp" />
+    <ClCompile Include="Polinom.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -82,6 +82,22 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
+    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
+    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
+    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <AllProjectIncludesArePublic>true</AllProjectIncludesArePublic>
+    <AllProjectBMIsArePublic>false</AllProjectBMIsArePublic>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>

@@ -1,2 +1,5 @@
-﻿  Sample.cpp
-  Sample.vcxproj -> C:\Users\Сергей\Documents\ABC_legend_group\x64\Debug\Sample.exe
+﻿Sample.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __cdecl Polinom::Polinom(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (??0Polinom@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z) в функции main.
+Sample.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl Polinom::setName(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?setName@Polinom@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z) в функции main.
+Sample.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: class Polinom __cdecl Polinom::MultiplyByConst(int)const " (?MultiplyByConst@Polinom@@QEBA?AV1@H@Z) в функции main.
+Sample.obj : error LNK2001: неразрешенный внешний символ "private: static class tablesControl Polinom::tables" (?tables@Polinom@@0VtablesControl@@A).
+C:\Users\Артём\Desktop\ \programming\c++\michails\ABC_legend_group\x64\Debug\Sample.exe : fatal error LNK1120: неразрешенных внешних элементов: 4
