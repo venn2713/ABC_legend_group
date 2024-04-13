@@ -2,6 +2,7 @@
 
 
 tablesControl Polinom::tables(0);
+int Polinom::dublicate = 0;
 
 Polinom::Polinom(const Polinom& other) {
 
@@ -63,10 +64,12 @@ void Polinom::AddMonom(const Monom& monom) {
     if (monom.coef != 0) { monoms.pushBack(monom); }
 }
 
-void Polinom::setName(string name) {
+string Polinom::getName() { return name; }
+
+void Polinom::setName(string oldName, string newName) {
 
     this->name = name;
-    tables.changeKeyFromAll("None", name);
+    tables.changeKeyFromAll(oldName, name);
 }
 
 void Polinom::combineLikeTerms() {
@@ -126,7 +129,7 @@ Polinom Polinom::MultiplyByConst(int constant) const {
         res.AddMonom(Monom(newCoef, cur.degree));
     }
 
-    res.name = "None";
+    res.name = to_string(dublicate++);
     tables.insertIntoAll(res.name, res.monoms);
     return res;
 }
@@ -159,7 +162,7 @@ Polinom Polinom::operator-(const Polinom& other) const {
 
     res.combineLikeTerms();
 
-    res.name = "None";
+    res.name = to_string(dublicate++);
     tables.insertIntoAll(res.name, res.monoms);
     return res;
 }
@@ -175,7 +178,7 @@ Polinom Polinom::operator+(const Polinom& other) const {
 
     res.combineLikeTerms();
 
-    res.name = "None";
+    res.name = to_string(dublicate++);
     tables.insertIntoAll(res.name, res.monoms);
     return res;
 }
@@ -196,7 +199,7 @@ Polinom Polinom::operator*(const Polinom& other) const {
 
     res.combineLikeTerms();
 
-    res.name = "None";
+    res.name = to_string(dublicate++);
     tables.insertIntoAll(res.name, res.monoms);
     return res;
 }
