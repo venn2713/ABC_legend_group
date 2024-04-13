@@ -25,10 +25,7 @@ public:
 
     void setActiveIndex(int idx) { activeIdx = idx; }
 
-    int getSize() {
-
-        return vec.size();
-    }
+    int getSize() { return vec.size(); }
 
     void changeKeyFromAll(string oldKey, string newKey) {
 

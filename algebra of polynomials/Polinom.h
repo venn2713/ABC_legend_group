@@ -17,6 +17,7 @@ private:
     string name;
     TList<Monom> monoms;
     static tablesControl tables;
+    static int dublicate;
 
     void AddMonom(const Monom& monom);
 
@@ -25,7 +26,8 @@ public:
     Polinom(const Polinom& other);
     Polinom(const string& name, const string& polinomStr);
 
-    void setName(string name);
+    string getName();
+    void setName(string oldName, string newName);
     void combineLikeTerms();
     void deletePolinom();
     bool isEmpty();
