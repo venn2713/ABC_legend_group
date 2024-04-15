@@ -21,8 +21,13 @@
   <ItemGroup>
     <ClInclude Include="AbstractTable.h" />
     <ClInclude Include="ArrayTable.h" />
+    <ClInclude Include="ChainedHashTable.h" />
+    <ClInclude Include="LinkedTable.h" />
     <ClInclude Include="Monom.h" />
+    <ClInclude Include="OpenAddressingHashTable.h" />
+    <ClInclude Include="OrderedArrayTable.h" />
     <ClInclude Include="Polinom.h" />
+    <ClInclude Include="RedBlackTree.h" />
     <ClInclude Include="TablesControl.h" />
     <ClInclude Include="TList.h" />
   </ItemGroup>

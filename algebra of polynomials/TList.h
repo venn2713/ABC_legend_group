@@ -1,6 +1,9 @@
 #ifndef __TLIST_H__
 #define __TLIST_H__
 
+template<typename T, typename NodePtr>
+class TListIterator;
+
 
 template<typename T>
 class TList {
@@ -10,6 +13,9 @@ private:
         T value;
         TNode* pNext;
     };
+
+    friend class TListIterator<T, TNode*>;
+    friend class TListIterator<T, const TNode*>;
 
     size_t size;
     TNode* pFirst;
@@ -28,6 +34,25 @@ private:
     }
 
 public:
+    using iterator = TListIterator<T, TNode*>;
+    using const_iterator = TListIterator<const T, const TNode*>;
+
+    iterator begin() {
+        return iterator(pFirst);
+    }
+
+    iterator end() {
+        return iterator(nullptr);
+    }
+
+    const_iterator cbegin() const {
+        return const_iterator(pFirst);
+    }
+
+    const_iterator cend() const {
+        return const_iterator(nullptr);
+    }
+
     TList() : pFirst(nullptr), size(0) {}
 
     TList(const TList& other) : pFirst(nullptr), size(0) {
@@ -115,7 +140,7 @@ public:
         return pFirst->value;
     }
 
-    const T& getValueAtPosition(size_t position) const {
+    T& getValueAtPosition(size_t position) const {
 
         return getNodeAtPosition(position)->value;
     }
@@ -149,4 +174,42 @@ public:
         clear();
     }
 };
+
+template<typename T, typename NodePtr>
+class TListIterator {
+private:
+    NodePtr currentNode;
+
+public:
+    TListIterator(NodePtr node) : currentNode(node) {}
+
+    T& operator*() const {
+        return currentNode->value;
+    }
+
+
+    TListIterator& operator++() {
+        currentNode = currentNode->pNext;
+        return *this;
+    }
+
+    TListIterator operator++(int) {
+        TListIterator iterator = *this;
+        ++(*this);
+        return iterator;
+    }
+
+    T* operator->() const {
+        return &(currentNode->value);
+    }
+
+    bool operator==(const TListIterator& other) const {
+        return currentNode == other.currentNode;
+    }
+
+    bool operator!=(const TListIterator& other) const {
+        return !(*this == other);
+    }
+};
+
 #endif
