@@ -20,18 +20,20 @@ private:
     static int dublicate;
 
     void AddMonom(const Monom& monom);
+    void combineLikeTerms();
 
 public:
     Polinom() {}
     Polinom(const Polinom& other);
     Polinom(const string& name, const string& polinomStr);
 
+    void setActiveIndex(int idx);
     string getName();
+    size_t getSize() const;
     void setName(string oldName, string newName);
-    void combineLikeTerms();
     void deletePolinom();
     bool isEmpty();
-    double Ñalculation(double x, double y, double z) const;
+    double Calculation(double x, double y, double z) const;
     Polinom MultiplyByConst(int constant) const;
 
     Polinom& operator=(const Polinom& other);

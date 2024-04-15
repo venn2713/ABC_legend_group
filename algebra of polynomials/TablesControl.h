@@ -2,6 +2,11 @@
 #include <vector>
 #include "AbstractTable.h"
 #include "ArrayTable.h"
+#include "LinkedTable.h"
+#include "OrderedArrayTable.h"
+#include "ChainedHashTable.h"
+#include "OpenAddressingHashTable.h"
+#include "RedBlackTree.h"
 
 
 class tablesControl {
@@ -13,7 +18,15 @@ public:
     tablesControl(int activeIdx) : activeIdx(activeIdx) {
 
         shared_ptr<AbstractTable> table1 = make_shared<ArrayTable>();
+        shared_ptr<AbstractTable> table2 = make_shared<LinkedTable>();
+        shared_ptr<AbstractTable> table3 = make_shared<OrderedArrayTable>();
+        shared_ptr<AbstractTable> table4 = make_shared<ChainedHashTable>();
+        shared_ptr<AbstractTable> table5 = make_shared<OpenAddressingHashTable>();
         insertTable(table1);
+        insertTable(table2);
+        insertTable(table3);
+        insertTable(table4);
+        insertTable(table5);
     }
 
     void insertTable(shared_ptr<AbstractTable> table) {

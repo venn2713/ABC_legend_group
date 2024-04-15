@@ -25,6 +25,14 @@ public:
         return result;
     }
 
+    int getDegree() const {
+       return degree;
+    }
+
+    double getCoef() const {
+       return coef;
+    }
+
     bool operator==(const Monom& other) const {
 
         return degree == other.degree && abs(coef - other.coef) < 1e-10;
@@ -48,6 +56,10 @@ public:
     bool operator<(const Monom& other) const {
 
         return degree < other.degree;
+    }
+
+    bool operator!=(const Monom& other) const {
+       return !(*this == other);
     }
 
     friend ostream& operator<<(ostream& stream, const Monom& monom) {

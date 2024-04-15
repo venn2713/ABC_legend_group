@@ -68,8 +68,12 @@ string Polinom::getName() { return name; }
 
 void Polinom::setName(string oldName, string newName) {
 
-    this->name = name;
+    this->name = newName;
     tables.changeKeyFromAll(oldName, name);
+}
+
+size_t Polinom::getSize() const {
+   return monoms.getSize();
 }
 
 void Polinom::combineLikeTerms() {
@@ -108,7 +112,9 @@ bool Polinom::isEmpty() {
     return monoms.isEmpty();
 }
 
-double Polinom::Ñalculation(double x, double y, double z) const {
+void Polinom::setActiveIndex(int idx) { tables.setActiveIndex(idx); }
+
+double Polinom::Calculation(double x, double y, double z) const {
 
     double sum = 0.0;
     for (size_t i = 0; i < monoms.getSize(); ++i)
