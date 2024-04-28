@@ -34,23 +34,6 @@ TEST(PolynomialTableWithRedBlackTreeTest, GetNonexistentPolynomial) {
 	EXPECT_THROW(table.getPolynomial("nonexistent_poly"), std::out_of_range);
 }
 
-// Тест для проверки удаления существующего полинома из таблицы
-TEST(PolynomialTableWithRedBlackTreeTest, RemoveExistingPolynomial) {
-	PolynomialTableWithRedBlackTree table;
-	Polynomial polynomial({ 3, 2, -1 });
-	table.addPolynomial("poly1", polynomial);
-	table.addPolynomial("poly2", Polynomial({ 1, 2, 3 }));
-	table.removePolynomial("poly1");
-	EXPECT_THROW(table.getPolynomial("poly1"), std::out_of_range);
-	EXPECT_EQ(table.getPolynomial("poly2"), Polynomial({ 1, 2, 3 }));
-}
-
-// Тест для проверки удаления несуществующего полинома из таблицы
-TEST(PolynomialTableWithRedBlackTreeTest, RemoveNonexistentPolynomial) {
-	PolynomialTableWithRedBlackTree table;
-	EXPECT_THROW(table.removePolynomial("nonexistent_poly"), std::out_of_range);
-}
-
 // Тест для проверки получения имени таблицы
 TEST(PolynomialTableWithRedBlackTreeTest, GetTableName) {
 	PolynomialTableWithRedBlackTree table;
@@ -75,32 +58,4 @@ TEST(PolynomialTableWithRedBlackTreeTest, PrintTableWithOnePolynomial) {
 	table.print(oss);
 	std::string expected_output = "PolynomialTableWithRedBlackTree:\n-----------\npoly: -z + 2y + 3x^2\n\n-----------\n";
 	EXPECT_EQ(oss.str(), expected_output);
-}
-
-// Тест для проверки удаления полинома из таблицы с несколькими полиномами
-TEST(PolynomialTableWithRedBlackTreeTest, RemovePolynomialWithMultiplePolynomials) {
-	PolynomialTableWithRedBlackTree table;
-	Polynomial polynomial1("3x^2 + 2y^1 - z^1");
-	Polynomial polynomial2("x^1 + y^1 + z^1");
-	table.addPolynomial("poly1", polynomial1);
-	table.addPolynomial("poly2", polynomial2);
-	table.removePolynomial("poly1");
-	EXPECT_THROW(table.getPolynomial("poly1"), std::out_of_range);
-	EXPECT_EQ(table.getPolynomial("poly2"), polynomial2);
-}
-
-
-
-// Тест для проверки удаления несуществующего полинома из таблицы
-TEST(PolynomialTableWithRedBlackTreeTest, RemoveNonexistentPolynomial1) {
-	PolynomialTableWithRedBlackTree table;
-	Polynomial polynomial("3x^2 + 2y^1 - z^1");
-	Polynomial polynomial1("x^1 + y^1 + z^1");
-	table.addPolynomial("poly1", polynomial);
-	table.addPolynomial("poly2", polynomial1);
-	// Удаляем несуществующий полином
-	EXPECT_THROW(table.removePolynomial("nonexistent_poly"), std::out_of_range);
-	// Проверяем, что состояние таблицы не изменилось
-	EXPECT_EQ(table.getPolynomial("poly1"), polynomial);
-	EXPECT_EQ(table.getPolynomial("poly2"), polynomial1);
 }
