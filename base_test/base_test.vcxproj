@@ -186,14 +186,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="test_chainedHashTable.cpp" />
-    <ClCompile Include="test_linkedTable.cpp" />
-    <ClCompile Include="test_list.cpp" />
+    <ClCompile Include="test_ArrayTable.cpp" />
+    <ClCompile Include="test_chainHash.cpp" />
+    <ClCompile Include="test_hash.cpp" />
+    <ClCompile Include="test_ListTable.cpp" />
     <ClCompile Include="test_main.cpp" />
-    <ClCompile Include="test_monom.cpp" />
-    <ClCompile Include="test_openAddressingHashTable.cpp" />
-    <ClCompile Include="test_orderedArrayTable.cpp" />
-    <ClCompile Include="test_polinom.cpp" />
+    <ClCompile Include="test_OrderedTable.cpp" />
+    <ClCompile Include="test_pol.cpp" />
+    <ClCompile Include="test_postfix.cpp" />
+    <ClCompile Include="test_stack.cpp" />
+    <ClCompile Include="test_tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\algebra of polynomials\algebra of polynomials.vcxproj">

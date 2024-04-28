@@ -1,84 +1,75 @@
-#ifndef ABSTRACTTABLE_H
-#define ABSTRACTTABLE_H
 
 
-class ArrayTable : public AbstractTable {
+// Класс для управления таблицей полиномов, используя вектор для хранения.
+class PolynomialArrayTable : public IPolynomialTable {
 private:
-    struct TTableRec
-    {
-        string key;
-        TList<Monom> value;
-    };
-
-    vector<TTableRec> data{};
+    std::vector<std::pair<std::string, Polynomial>> table;  // Вектор, хранящий пары "имя-полином"
+    std::string table_name = "PolynomialArrayTable";  // Имя таблицы для идентификации
 
 public:
-    ArrayTable() = default;
+    // Метод для добавления полинома в таблицу
+    void addPolynomial(const std::string& name, const Polynomial& polynomial) override {
+        // Поиск существующего полинома по имени с помощью лямбда-функции
+        auto it = std::find_if(table.begin(), table.end(), [&](const auto& item) {
+            return item.first == name;
+            });
 
-    ArrayTable(const ArrayTable& other) : data(other.data) {}
-
-    ArrayTable& operator=(const ArrayTable& other) {
-
-        if (this != &other) { data = other.data; }
-        return *this;
-    }
-
-    size_t size() const noexcept override { return data.size(); }
-
-    TList<Monom>& operator[](size_t pos) override { return data[pos].value; }
-
-    void deleteData(string key) override {
-
-        for (size_t i = 0; i < data.size(); i++)
-        {
-            if (data[i].key == key)
-            {
-                data[i] = data[data.size() - 1];
-                data.pop_back();
-
-                return;
-            }
+        if (it != table.end()) {
+            // Если найден, обновляем существующий полином
+            it->second = polynomial;
+        }
+        else {
+            // Если не найден, добавляем новую пару в конец вектора
+            table.emplace_back(name, polynomial);
         }
     }
 
-    TList<Monom>* find(string key) override {
+    // Метод для получения полинома по имени
+    Polynomial& getPolynomial(const std::string& name) override {
+        // Линейный поиск полинома по имени
+        auto it = std::find_if(table.begin(), table.end(), [&](const auto& item) {
+            return item.first == name;
+            });
 
-        for (auto& val : data)
-        {
-            if (val.key == key) { return &val.value; }
+        if (it != table.end()) {
+            // Если найден, возвращаем полином
+            return it->second;
         }
-        return nullptr;
-    }
-
-    void insert(string key, TList<Monom> value) override {
-
-        if (find(key)) { return; }
-        data.push_back({ key, value });
-    }
-
-    void changeKey(string key, string newKey) override {
-
-        for (auto& entry : data)
-        {
-            if (entry.key == key) { entry.key = newKey; }
+        else {
+            // Если не найден, бросаем исключение
+            throw std::out_of_range("Polynomial not found with the name: " + name);
         }
     }
 
-    ostream& print(ostream& stream, string name) const override {
+    // Метод для удаления полинома по имени
+    void removePolynomial(const std::string& name) override {
+        // Поиск полинома для удаления
+        auto it = std::find_if(table.begin(), table.end(), [&](const auto& item) {
+            return item.first == name;
+            });
 
-        for (const auto& entry : data)
-        {
-            if (entry.key == name)
-            {
-                stream << "Key: " << entry.key << ", Value: " << entry.value << endl;
-            }
+        if (it != table.end()) {
+            // Если найден, удаляем
+            table.erase(it);
         }
-        return stream;
+        else {
+            // Если не найден, бросаем исключение
+            throw std::out_of_range("Polynomial not found with the name: " + name);
+        }
     }
 
-    friend ostream& operator<<(ostream& stream, const ArrayTable table) {
+    // Метод для получения имени таблицы
+    std::string getTableName() const override {
+        return table_name;
+    }
 
-        table.print(stream, activeName);
+    // Метод для печати содержимого таблицы
+    void print(std::ostream& os) const override {
+        os << table_name << ":" << std::endl << "-----------" << std::endl;
+        for (const auto& entry : table) {
+            os << entry.first << ": ";  // Вывод имени полинома
+            entry.second.print(os);  // Вывод самого полинома
+        }
+        os << "-----------" << std::endl;
     }
 };
-#endif

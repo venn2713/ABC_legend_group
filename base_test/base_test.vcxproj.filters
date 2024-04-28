@@ -18,25 +18,31 @@
     <ClCompile Include="test_main.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="test_list.cpp">
+    <ClCompile Include="test_ArrayTable.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="test_monom.cpp">
+    <ClCompile Include="test_ListTable.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="test_polinom.cpp">
+    <ClCompile Include="test_OrderedTable.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="test_linkedTable.cpp">
+    <ClCompile Include="test_tree.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="test_orderedArrayTable.cpp">
+    <ClCompile Include="test_pol.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="test_openAddressingHashTable.cpp">
+    <ClCompile Include="test_postfix.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="test_chainedHashTable.cpp">
+    <ClCompile Include="test_stack.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="test_hash.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="test_chainHash.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>

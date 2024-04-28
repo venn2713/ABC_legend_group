@@ -1,6 +1,2 @@
-﻿  Polinom.cpp
-C:\repository\2024-2-lab1\ABC_legend_group\algebra of polynomials\TablesControl.h(41): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  Sample.cpp
-C:\repository\2024-2-lab1\ABC_legend_group\algebra of polynomials\TablesControl.h(41): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
+﻿  Sample.cpp
   algebra of polynomials.vcxproj -> C:\repository\2024-2-lab1\ABC_legend_group\x64\Debug\algebra of polynomials.exe
