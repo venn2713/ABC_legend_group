@@ -19,21 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbstractTable.h" />
     <ClInclude Include="ArrayTable.h" />
-    <ClInclude Include="ChainedHashTable.h" />
-    <ClInclude Include="LinkedTable.h" />
-    <ClInclude Include="Monom.h" />
-    <ClInclude Include="OpenAddressingHashTable.h" />
-    <ClInclude Include="OrderedArrayTable.h" />
-    <ClInclude Include="Polinom.h" />
-    <ClInclude Include="RedBlackTree.h" />
-    <ClInclude Include="TablesControl.h" />
-    <ClInclude Include="TList.h" />
+    <ClInclude Include="ChainedlHashTable.h" />
+    <ClInclude Include="design.h" />
+    <ClInclude Include="HachTable.h" />
+    <ClInclude Include="IPolynomialTable.h" />
+    <ClInclude Include="ListTable.h" />
+    <ClInclude Include="OrderedTable.h" />
+    <ClInclude Include="Polinomial.h" />
+    <ClInclude Include="RBTreeTable.h" />
+    <ClInclude Include="StackAndPostfix.h" />
+    <ClInclude Include="TableManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Sample.cpp" />
-    <ClCompile Include="Polinom.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

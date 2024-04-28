@@ -15,44 +15,41 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Polinom.h">
+    <ClInclude Include="TableManager.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Monom.h">
+    <ClInclude Include="IPolynomialTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="TablesControl.h">
+    <ClInclude Include="Polinomial.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractTable.h">
+    <ClInclude Include="ListTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ArrayTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="TList.h">
+    <ClInclude Include="OrderedTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="LinkedTable.h">
+    <ClInclude Include="RBTreeTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="OrderedArrayTable.h">
+    <ClInclude Include="HachTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="ChainedHashTable.h">
+    <ClInclude Include="StackAndPostfix.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="OpenAddressingHashTable.h">
+    <ClInclude Include="ChainedlHashTable.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="RedBlackTree.h">
+    <ClInclude Include="design.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Polinom.cpp">
-      <Filter>Файлы ресурсов</Filter>
-    </ClCompile>
     <ClCompile Include="Sample.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
