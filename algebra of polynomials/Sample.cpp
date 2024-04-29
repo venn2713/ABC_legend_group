@@ -24,13 +24,13 @@ enum  Menu {
 };
 
 char Menu[7][50] = {
-   "Добавление полинома",
-   "Удаление полинома",
-   "Алгебраическое выражение",
-   "Вычисление в точке",
-   "Смена активной таблицы",
-   "Вывод активной таблицы",
-   "Выход"
+   "Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЇГ®Г«ГЁГ­Г®Г¬Г ",
+   "Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЇГ®Г«ГЁГ­Г®Г¬Г ",
+   "ГЂГ«ГЈГҐГЎГ°Г ГЁГ·ГҐГ±ГЄГ®ГҐ ГўГ»Г°Г Г¦ГҐГ­ГЁГҐ",
+   "Г‚Г»Г·ГЁГ±Г«ГҐГ­ГЁГҐ Гў ГІГ®Г·ГЄГҐ",
+   "Г‘Г¬ГҐГ­Г  Г ГЄГІГЁГўГ­Г®Г© ГІГ ГЎГ«ГЁГ¶Г»",
+   "Г‚Г»ГўГ®Г¤ Г ГЄГІГЁГўГ­Г®Г© ГІГ ГЎГ«ГЁГ¶Г»",
+   "Г‚Г»ГµГ®Г¤"
 };
 int active_menu = 0;
 
@@ -38,7 +38,7 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     system("chcp 1251");
-    system("title Полиномиальный калькулятор");
+    system("title ГЏГ®Г«ГЁГ­Г®Г¬ГЁГ Г«ГјГ­Г»Г© ГЄГ Г«ГјГЄГіГ«ГїГІГ®Г°");
     SMALL_RECT window;
     COORD buf;
     getwindow(&window, &buf);
@@ -63,12 +63,12 @@ int main()
     variable_x = (window.Left + window.Right) / 30;
     textcolor(MAGENTA);
     gotoxy(variable_x + 25, wherey() + 5);
-    cout << "Добро пожаловать в программу, которая работает c \"Полиномами\"" << endl;
+    cout << "Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Гў ГЇГ°Г®ГЈГ°Г Г¬Г¬Гі, ГЄГ®ГІГ®Г°Г Гї Г°Г ГЎГ®ГІГ ГҐГІ c \"ГЏГ®Г«ГЁГ­Г®Г¬Г Г¬ГЁ\"" << endl;
     gotoxy(variable_x + 5, wherey() + 3);
 
-    cout << "Необходимо ввести полином для добавления в таблицы (Мономы разделяются знаками + или -, пример: 2x^3y^3+3x^2): " << endl;
+    cout << "ГЌГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® ГўГўГҐГ±ГІГЁ ГЇГ®Г«ГЁГ­Г®Г¬ Г¤Г«Гї Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Гў ГІГ ГЎГ«ГЁГ¶Г» (ГЊГ®Г­Г®Г¬Г» Г°Г Г§Г¤ГҐГ«ГїГѕГІГ±Гї Г§Г­Г ГЄГ Г¬ГЁ + ГЁГ«ГЁ -, ГЇГ°ГЁГ¬ГҐГ°: 2x^3y^3+3x^2): " << endl;
     getline(cin, pol);
-    cout << "Введите имя для полинома (пример: pol1): ";
+    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЁГ¬Гї Г¤Г«Гї ГЇГ®Г«ГЁГ­Г®Г¬Г  (ГЇГ°ГЁГ¬ГҐГ°: pol1): ";
     getline(cin, name);
     manager.addPolynomialToAllTables(name, Polynomial(pol));
     
@@ -107,9 +107,9 @@ int main()
             {
             case add_polynomial:
                 system("cls");
-                cout << "Введите полином для добавления в таблицы (Мономы разделяются знаками + или -, пример: 2x^3y^3+3x^2): ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЇГ®Г«ГЁГ­Г®Г¬ Г¤Г«Гї Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Гў ГІГ ГЎГ«ГЁГ¶Г» (ГЊГ®Г­Г®Г¬Г» Г°Г Г§Г¤ГҐГ«ГїГѕГІГ±Гї Г§Г­Г ГЄГ Г¬ГЁ + ГЁГ«ГЁ -, ГЇГ°ГЁГ¬ГҐГ°: 2x^3y^3+3x^2): ";
                 getline(cin, pol);
-                cout << "Введите имя для полинома (пример: pol1): ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЁГ¬Гї Г¤Г«Гї ГЇГ®Г«ГЁГ­Г®Г¬Г  (ГЇГ°ГЁГ¬ГҐГ°: pol1): ";
                 getline(cin, name);
 
                 manager.addPolynomialToAllTables(name, Polynomial(pol));
@@ -119,7 +119,7 @@ int main()
             case del_polynomial:
                 system("cls");
 
-                cout << "Введите имя полинома для удаления из всех таблиц (пример: pol1): ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЁГ¬Гї ГЇГ®Г«ГЁГ­Г®Г¬Г  Г¤Г«Гї ГіГ¤Г Г«ГҐГ­ГЁГї ГЁГ§ ГўГ±ГҐГµ ГІГ ГЎГ«ГЁГ¶ (ГЇГ°ГЁГ¬ГҐГ°: pol1): ";
                 getline(cin, name);
 
                 manager.removePolynomialFromAllTables(name);
@@ -129,7 +129,7 @@ int main()
 
             case algebraic_expression:
                 system("cls");
-                cout << "Введите алгебраическое выражение (пример: 2 * pol1 + 2 * pol2 + 3.6 * q - const6): ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г Г«ГЈГҐГЎГ°Г ГЁГ·ГҐГ±ГЄГ®ГҐ ГўГ»Г°Г Г¦ГҐГ­ГЁГҐ (ГЇГ°ГЁГ¬ГҐГ°: 2 * pol1 + 2 * pol2 + 3.6 * q - const6): ";
                 getline(cin, infix_string);
                 try {
                     
@@ -137,8 +137,8 @@ int main()
                     string postfix_string = calc.infixToPostfix(infix_string);
                     cout << "Postfix: \"" << postfix_string << "\"" << endl;
                     Polynomial result = calc.evaluate(postfix_string);
-                    cout << "Результат: " << result << endl;
-                    cout << "Введите имя для полученного полинома: ";
+                    cout << "ГђГҐГ§ГіГ«ГјГІГ ГІ: " << result << endl;
+                    cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЁГ¬Гї Г¤Г«Гї ГЇГ®Г«ГіГ·ГҐГ­Г­Г®ГЈГ® ГЇГ®Г«ГЁГ­Г®Г¬Г : ";
                     getline(cin, name);
                     manager.addPolynomialToAllTables(name, result);
                     
@@ -151,18 +151,18 @@ int main()
 
             case in_point:
                 system("cls");
-                cout << "Введите имя полинома для вычисления в точке (пример: pol1): ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЁГ¬Гї ГЇГ®Г«ГЁГ­Г®Г¬Г  Г¤Г«Гї ГўГ»Г·ГЁГ±Г«ГҐГ­ГЁГї Гў ГІГ®Г·ГЄГҐ (ГЇГ°ГЁГ¬ГҐГ°: pol1): ";
                 getline(cin, name);
-                cout << "Введите значение x: ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ x: ";
                 cin >> x;
-                cout << "Введите значение y: ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ y: ";
                 cin >> y;
-                cout << "Введите значение z: ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ z: ";
                 cin >> z;
                 res = manager.getActiveTable()->getPolynomial(name).evaluate(x, y, z);
                 
                 manager.getActiveTable()->getPolynomial(name).print();
-                cout << "Ответ: " << res << endl;
+                cout << "ГЋГІГўГҐГІ: " << res << endl;
 
                 system("pause");
                 break;
@@ -175,10 +175,10 @@ int main()
 
                 int t;
 
-                cout << "Введите индекс: ";
+                cout << "Г‚ГўГҐГ¤ГЁГІГҐ ГЁГ­Г¤ГҐГЄГ±: ";
                 cin >> t;
                 manager.setActiveTableByName(tables_name[t - 1]);
-                
+                cin.ignore(1, '\n');
                 system("pause");
                 break;
 
